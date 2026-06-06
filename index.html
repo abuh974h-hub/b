@@ -260,7 +260,7 @@
 
             <div class="input-group">
                 <label>الشعبة</label>
-                <input type="text" id="studentClass" class="input-field" placeholder="مثال: 1/2">
+                <input type="text" id="studentClass" class="input-field" placeholder="مثال: 1">
             </div>
             <button class="btn btn-primary" onclick="goToModeSelection()">
                 <span>🚀</span> بدء الاختبار
@@ -447,7 +447,7 @@
                 <button class="btn btn-secondary" onclick="closeTeacherModal()">إلغاء</button>
                 <button class="btn btn-primary" onclick="verifyTeacher()">دخول</button>
             </div>
-            <p style="font-size: 12px; color: var(--text-light); margin-top: 12px; text-align: center;">الرمز الافتراضي: 1234</p>
+            <p style="font-size: 12px; color: var(--text-light); margin-top: 12px; text-align: center;">الرمز الافتراضي: خاص</p>
         </div>
     </div>
 
@@ -509,8 +509,6 @@ const questionsData = [
     {id: 42, question: "قيمة x تساوي (زوايا في دائرة)", options: ["50°", "140°", "30°", "20°"], correct: 0, explanation: "الزاوية المحيطية = نصف قياس القوس المقابل\nx = 50°", type: "mcq"},
 {id: 43, question: "مركز الدائرة التي معادلتها &lrm;(x - 2)<sup>2</sup> + (y - 4)<sup>2</sup> = 25 هو النقطة", options: ["<span dir='ltr'>(-2, -4)</span>", "<span dir='ltr'>(-2, 4)</span>", "<span dir='ltr'>(2, -4)</span>", "<span dir='ltr'>(2, 4)</span>"], correct: 3, explanation: "المركز = (2, 4)", type: "mcq"},
 {id: 44, question: "نصف قطر الدائرة التي معادلتها &lrm;(x - 2)<sup>2</sup> + (y - 4)<sup>2</sup> = 25<sup>2</sup> يساوي", options: ["<span dir='ltr'>25</span>", "<span dir='ltr'>10</span>", "<span dir='ltr'>5</span>", "<span dir='ltr'>4</span>"], correct: 2, explanation: "<span dir='ltr'>r² = 25 → r = 5</span>", type: "mcq"},
-
-
     {id: 45, question: "قياس القوس الأكبر GLH يساوي", options: ["180°", "122°", "58°", "238°"], correct: 3, explanation: "360° - 122° = 238°", type: "mcq"},
     {id: 46, question: "دائرة محيطها 24π cm فإن طول نصف قطرها يساوي", options: ["24 cm", "6 cm", "4 cm", "12 cm"], correct: 3, explanation: "2πr = 24π → r = 12 cm", type: "mcq"},
     {id: 47, question: "قيمة x تساوي (زوايا في دائرة)", options: ["180°", "102°", "50°", "21°"], correct: 1, explanation: "x = 102°", type: "mcq"},
