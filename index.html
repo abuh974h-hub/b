@@ -950,7 +950,7 @@ function closeTeacherModal() { document.getElementById('teacherModal').classList
 
 async function verifyTeacher() {
     const pass = document.getElementById('teacherPassword').value;
-    if (pass === '1234') {
+    if (pass === '123450') {
         closeTeacherModal();
         showScreen('teacherScreen');
         await loadQuizData(true);  // ← حمل البيانات أولاً
