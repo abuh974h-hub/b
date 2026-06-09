@@ -491,8 +491,6 @@
 <script>
 // ==================== SHEETDB API CONFIG ====================
 
-const SHEETDB_API_URL = 'https://script.google.com/macros/s/AKfycbxaF_N3BRHolo3fMp_O1_FiF20tN6u_eaWPsOOwEf7ggxfwEDUr54dqGXIADo0BfQEr/exec';
-const SHEETDB_API_KEY = '';
 
 // ==================== DATA ====================
 
@@ -772,15 +770,14 @@ async function fetchFromSheetDB() {
         return [];
     }
 }
-// ضع رابط تطبيق الويب الخاص بـ Google Apps Script هنا
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxaF_N3BRHolo3fMp_O1_FiF20tN6u_eaWPsOOwEf7ggxfwEDUr54dqGXIADo0BfQEr/exec';
 
 async function saveToSheetDB(record) {
     try {
         const response = await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ data: [record] }) // هذه الطريقة متوافقة مع كود الباك إند الخاص بك
+            headers: { 'Content-Type': 'text/plain' }, // ⬅️ التعديل السحري هنا
+            body: JSON.stringify({ data: [record] }) 
         });
         
         if (!response.ok) throw new Error('HTTP ' + response.status);
@@ -790,7 +787,7 @@ async function saveToSheetDB(record) {
         showSyncStatus('✅ تم الحفظ في السحابة', 'success');
         return true;
     } catch (error) {
-        console.error('SheetDB save error:', error);
+        console.error('Save error:', error);
         showSyncStatus('⚠️ تم الحفظ محلياً فقط', 'error');
         return false;
     }
