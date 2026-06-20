@@ -881,7 +881,7 @@ async function finishQuiz() {
     let correct = 0, wrong = 0;
     quizQuestions.forEach((q, i) => { const ans = answers[i]; if (ans === undefined) wrong++; else if ((q.type === 'mcq' && ans === q.correct) || (q.type === 'tf' && ans === q.correct)) correct++; else wrong++; });
     const score = Math.round((correct / quizQuestions.length) * 100);
-    const result = { name: studentName, class: studentClass,platform: platformId, score, correct, wrong, total: quizQuestions.length, time: elapsed, mode: selectedMode, date: new Date().toISOString() };
+    const result = { name: studentName, class: studentClass,platform: platformId, score, correct, wrong, total: quizQuestions.length, time: elapsed, mode: selectedMode, date: new Date().toLocaleString('sv-SE', { hour12: false }) };
     await saveToSheetDB(result);
     quizResults.push(result);
     localStorage.setItem('mathQuiz_backup', JSON.stringify(quizResults));
