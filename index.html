@@ -674,7 +674,7 @@ async function fetchFromSheetDB() {
         return [];
     }
 }
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxaF_N3BRHolo3fMp_O1_FiF20tN6u_eaWPsOOwEf7ggxfwEDUr54dqGXIADo0BfQEr/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwaryoGSBxegptFSphjIm6UWZIYy0kIFUpXNg-5zIzBDeac1R4Nw-8GFQ6mRhSuKJrc/exec';
 
 async function saveToSheetDB(record) {
     try {
@@ -873,6 +873,7 @@ function selectAnswer(qIdx, answer) { answers[qIdx] = answer; renderPage(); buil
 function nextPage() { if (currentPage < 2) { currentPage++; renderPage(); buildPageTabs(); } else finishQuiz(); }
 function prevPage() { if (currentPage > 0) { currentPage--; renderPage(); buildPageTabs(); } }
 
+    const platformId = "B";  // غيّر حسب المنصة (A, B, C)
 async function finishQuiz() {
     stopTimer();
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
@@ -880,7 +881,7 @@ async function finishQuiz() {
     let correct = 0, wrong = 0;
     quizQuestions.forEach((q, i) => { const ans = answers[i]; if (ans === undefined) wrong++; else if ((q.type === 'mcq' && ans === q.correct) || (q.type === 'tf' && ans === q.correct)) correct++; else wrong++; });
     const score = Math.round((correct / quizQuestions.length) * 100);
-    const result = { name: studentName, class: studentClass, score, correct, wrong, total: quizQuestions.length, time: elapsed, mode: selectedMode, date: new Date().toISOString() };
+    const result = { name: studentName, class: studentClass,platform: platformId, score, correct, wrong, total: quizQuestions.length, time: elapsed, mode: selectedMode, date: new Date().toISOString() };
     await saveToSheetDB(result);
     quizResults.push(result);
     localStorage.setItem('mathQuiz_backup', JSON.stringify(quizResults));
